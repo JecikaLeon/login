@@ -1,0 +1,30 @@
+<div class="container">
+    <form #formSingUp="ngForm" (ngSubmit)="onSubmit(formSingUp)">
+        <div class="p-2 mb-3 bg-info text-white"><span><strong>NUEVA CUENTA</strong></span></div>
+        <div class="col col-6">
+            <label for="email">Email *</label><br>
+            <span class="text-danger" *ngIf="formSingUp.submitted && formSingUp.controls['email'].errors">Introduzca un correo valido</span>
+            <input id="email" class="form-control" type="email" name="email" [(ngModel)]="user.email" autofocus placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+            <small class="form-text text-muted">Escribe el correo que quieres registrar</small>
+        </div><br>
+        <div class="col col-6">
+            <label for="name">Nombres *</label><br>
+            <span class="text-danger" *ngIf="formSingUp.submitted && formSingUp.controls['name'].errors">Introduzca un nombre</span>
+            <input id="name" class="form-control" name="name" type="text" [(ngModel)]="user.name" placeholder="Nombres" required>
+            <small class="form-text text-muted">Escribe el nombre que quieres registrar.</small>
+        </div><br>
+        <div class="col col-6">
+            <label for="password">Contraseña *</label><br>
+            <span class="text-danger" *ngIf="formSingUp.submitted && formSingUp.controls['password'].errors">Introduzca una contraseña</span>
+            <input id="password" class="form-control" name="password" type="password" [(ngModel)]="user.password" placeholder="Contraseña" required>
+            <small class="form-text text-muted">Escribe la contraseña que quiere registrar.</small>
+        </div><br>
+        <div class="col col-6" aling="center">
+            <a routerLink="/login" >¿Ya tienes cuenta? Ingresar</a>
+        </div>
+        <div class="col col-12">
+            <button type="submit" class="btn btn-info">Crear Cuenta</button>
+        </div>  
+        
+    </form>
+</div>

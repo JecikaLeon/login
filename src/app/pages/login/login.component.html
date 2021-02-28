@@ -1,0 +1,24 @@
+<div class="container">
+    <form #formLogin="ngForm" (ngSubmit)="sendData(formLogin)">
+        <div class="p-2 mb-3 bg-info text-white"><span><strong>LOGIN</strong></span></div>
+            <div class="col col-6">
+                <label for="email">Email:</label><br>
+                <span class="text-danger" *ngIf="formLogin.submitted && formLogin.controls['email'].errors">Introduzca un correo valido</span>
+                <input id="email" class="form-control" type="email" name="email" [(ngModel)]="user.name" required>
+                <small class="form-text text-muted">Escribe tu correo electronico registrado.</small>
+            </div><br>   
+            <div class="col col-6">
+                <label for="password">Contraseña:</label><br>
+                <span class="text-danger" *ngIf="formLogin.submitted && formLogin.controls['password'].errors">Introduzca la contraseña registrada</span>
+                <input id="password" class="form-control" name="password" type="password" [(ngModel)]="user.password" required>
+                <small class="form-text text-muted">Escribe tu contraseña registrada.</small>
+            </div><br>
+            <div class="col col-6">
+                <a routerLink="/register">¿No tienes cuenta? Registrate</a>
+            </div>
+            <div class="col col-12">
+                <button type="submit" class="btn btn-info">Iniciar Sesion</button>
+            </div> 
+                  
+    </form>
+</div>
